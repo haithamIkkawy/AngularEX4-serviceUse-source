@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+    <script src="app.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+
+<body>
+    <div ng-app="myApp" ng-controller="ctrl">
+        <label>Description</label>  <input style="width:45%" ng-model="name" type="text" class="form-control">
+           <label>Image URL</label> <input  style="width:45%" type="text" class="form-control" ng-model="image">
+        <br>
+        <button ng-click="addS()" class="btn btn-primary">ADD</button>
+        
+        <ul>
+            <li  ng-repeat="name in students track by $index"><b>{{name.name}}</b>
+                <input ng-model="UP">
+             
+            
+                <img style="width:15%;" ng-src="{{name.image}}">
+                <button ng-click="Update($index,UP)">Update</button>
+                <button ng-click="remove($index)">Delete</button>
+                <!--{{$index}}-->
+            </li>
+        </ul>
+        <div ng-if="students.length>=5">
+
+            <h1>You have entred so many names</h1>
+        </div>
+
+
+    </div>
+
+</body>
+
+</html>
